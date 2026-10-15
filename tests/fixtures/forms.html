@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+  <meta charset="utf-8" /><title>Fake Filler Dev · QA fixture</title>
+  <style>
+    body {
+      font:
+        15px Segoe UI,
+        sans-serif;
+      margin: 30px;
+      background: #f6f7fc;
+      color: #20263f;
+    }
+    h1 {
+      font-size: 24px;
+    }
+    form,
+    fieldset,
+    section {
+      margin: 15px 0;
+      padding: 15px;
+      border: 1px solid #ccd2e5;
+      max-width: 900px;
+    }
+    label {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 5px;
+      margin: 6px;
+    }
+    input,
+    select,
+    textarea {
+      padding: 8px;
+      width: 180px;
+      border: 1px solid #aab2cd;
+      border-radius: 4px;
+    }
+    input[type='checkbox'],
+    input[type='radio'] {
+      width: auto;
+    }
+    iframe {
+      width: 600px;
+      height: 100px;
+    }
+    button {
+      padding: 8px;
+    }
+  </style>
+  <h1>Fake Filler Dev · QA fixture</h1>
+  <p>Formulários locais para testes de escopo, documentos, máscaras e eventos.</p>
+  <form id="person">
+    <fieldset>
+      <legend>Cadastro pessoal</legend>
+      <label>Nome<input name="firstName" id="first" /></label
+      ><label>Sobrenome<input name="lastName" id="last" /></label
+      ><label>Nome completo<input name="fullName" id="full" /></label>
+      <label
+        >CPF<input id="cpf" name="cpf" maxlength="14" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+      /></label>
+      <label>CNS<input id="cns" name="cns" maxlength="15" /></label
+      ><label>CNPJ<input id="cnpj" name="cnpj" maxlength="18" /></label>
+      <label>E-mail<input id="email" name="email" type="email" /></label
+      ><label>Confirmar e-mail<input id="confirm-email" type="email" name="confirmEmail" /></label>
+      <label>Senha<input type="password" id="password" /></label
+      ><label
+        >Confirmar senha<input type="password" id="confirm-password" name="confirmPassword"
+      /></label>
+      <label>Nascimento<input id="birth" name="birthDate" type="date" /></label
+      ><label>Idade<input id="age" name="age" type="number" min="18" max="100" /></label>
+    </fieldset>
+    <fieldset>
+      <legend>Endereço</legend>
+      <label>CEP<input name="cep" id="cep" /></label><label>Rua<input name="street" /></label
+      ><label>Número<input name="houseNumber" /></label
+      ><label>Bairro<input name="district" /></label
+      ><label>Cidade<input name="city" id="city" /></label>
+      <label
+        >Estado<select name="state" id="state">
+          <option value="">Selecione</option>
+          <option>SP</option>
+          <option>MG</option>
+          <option>PR</option>
+        </select></label
+      >
+    </fieldset>
+    <label>Preservado<input id="keep" value="Não substituir" /></label
+    ><label>Disabled<input id="disabled" disabled /></label
+    ><label>Readonly<input id="readonly" readonly /></label
+    ><input id="hidden" type="hidden" /><input id="invisible" style="display: none" /><input
+      type="file"
+      id="file"
+    />
+    <label>Quantidade<input type="number" min="2" max="10" step="2" id="quantity" /></label
+    ><label
+      >Opção<select id="choice">
+        <option value="">Escolha</option>
+        <option disabled value="bad">Indisponível</option>
+        <option value="ok">Disponível</option>
+      </select></label
+    >
+    <label><input id="check" type="checkbox" />Aceite de teste</label
+    ><label><input type="radio" name="plan" value="a" />A</label
+    ><label><input type="radio" name="plan" value="b" />B</label
+    ><button type="submit">Enviar</button>
+  </form>
+  <form id="second">
+    <label>Outro CPF<input id="other-cpf" name="cpf" /></label>
+  </form>
+  <div id="shadow-host"></div>
+  <div id="dynamic"></div>
+  <iframe src="/frame"></iframe>
+  <script src="/fixture.js"></script>
+</html>

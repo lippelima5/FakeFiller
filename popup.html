@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Fake Filler Dev</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true">
+          <rect width="32" height="32" rx="10" fill="#5145cd" />
+          <path d="M10 9h13v4h-9v4h7v4h-7v5h-4z" fill="white" />
+          <circle cx="24" cy="24" r="4" fill="#71d8e8" />
+        </svg>
+        <div>
+          <h1>Fake Filler <span>Dev</span></h1>
+          <p>Dados de teste. Fluxo real.</p>
+        </div>
+      </div>
+      <button id="theme" class="icon" title="Alterar tema" aria-label="Alterar tema">◐</button>
+    </header>
+    <main>
+      <div class="mode" role="group" aria-label="Modo de geração">
+        <button data-mode="smart" aria-pressed="true">Smart</button
+        ><button data-mode="random" aria-pressed="false">Random</button
+        ><button data-mode="custom" aria-pressed="false">Custom</button>
+      </div>
+      <p id="mode-help" class="hint">Reconhece os campos e mantém os dados relacionados.</p>
+      <section class="workbench" aria-label="Preencher formulário">
+        <div class="section-title">
+          <h2>Preencher</h2>
+          <span class="locale">pt-BR <span aria-hidden="true">●</span> local</span>
+        </div>
+        <div class="scopes" role="group" aria-label="Escopo">
+          <button data-scope="all" aria-pressed="true">
+            All Inputs<small>Página inteira</small></button
+          ><button data-scope="form" aria-pressed="false">
+            This Form<small>Formulário ativo</small></button
+          ><button data-scope="input" aria-pressed="false">
+            This Input<small>Campo ativo</small>
+          </button>
+        </div>
+        <button id="fill" class="primary">
+          Preencher campos vazios <span aria-hidden="true">↵</span>
+        </button>
+        <div class="secondary">
+          <button id="random">⚄ Random</button><button id="regenerate">↻ Regenerate</button
+          ><button id="copy-fields">⧉ Copy</button>
+        </div>
+        <p class="hint">This Form e This Input usam o último campo selecionado na página.</p>
+      </section>
+      <section aria-label="Gerador individual">
+        <div class="section-title">
+          <h2>Gerar um dado</h2>
+          <label class="check"><input id="formatted" type="checkbox" checked /> Com máscara</label>
+        </div>
+        <div class="generator-controls">
+          <label class="sr-only" for="kind">Tipo de dado</label
+          ><select id="kind"></select
+          ><button id="generate" title="Gerar novo valor" aria-label="Gerar novo valor">
+            ↻ Gerar
+          </button>
+        </div>
+        <div class="output">
+          <label class="sr-only" for="value">Valor gerado</label
+          ><input id="value" readonly /><button
+            id="copy-value"
+            aria-label="Copiar valor gerado"
+            title="Copiar valor gerado"
+          >
+            ⧉
+          </button>
+        </div>
+      </section>
+      <details id="settings">
+        <summary>Preferências e regras</summary>
+        <label class="check"
+          ><input id="overwrite" type="checkbox" /> Sobrescrever valores no preenchimento</label
+        >
+        <p class="hint">Regenerate sempre substitui valores no escopo escolhido.</p>
+        <label for="rules">Regras Custom (JSON)</label
+        ><textarea
+          id="rules"
+          rows="5"
+          spellcheck="false"
+          placeholder='[{"selector":"#cliente", "generator":"fullName"}]'
+        ></textarea>
+        <p class="hint">
+          Primeira regra compatível vence. Sem correspondência, usa Smart. Campos incompatíveis são
+          ignorados.
+        </p>
+        <button id="save">Salvar preferências</button>
+      </details>
+      <p id="status" role="status" aria-live="polite">Pronto para o próximo teste.</p>
+    </main>
+    <footer><span class="dot"></span> Geração local <span>Sem envio automático</span></footer>
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>
